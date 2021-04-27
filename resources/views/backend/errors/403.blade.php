@@ -1,0 +1,2 @@
+<a>Bạn không có quyền để truy cập. Vui lòng liên hệ admin.</a><br>
+<a>Nếu bạn đã có tài khoản có quyền truy cập quản trị thì vui lòng </a><a href="http://127.0.0.1:8000/login">đăng nhập</a> để tiếp tục.
