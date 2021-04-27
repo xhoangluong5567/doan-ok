@@ -14,14 +14,14 @@
             <h1 class="page-header">Sản phẩm</h1>
         </div>
     </div>
-    
+
     <!--/.row-->
-    <form action="{{ asset('searchpro/') }}" method="get" style="margin-bottom:20px;" class="form-inline">
-  <div class="form-group" >
-    <input type="search" class="form-control" name="search" placeholder="Tên sản phẩm..." value="">
-  </div>
-  <button type="submit" class="btn btn-default"><i class="fa fa-search"></i> </button>
-</form>
+    <form action="{{ asset('admin/products') }}" method="get" style="margin-bottom:20px;" class="form-inline">
+        <div class="form-group">
+            <input type="search" class="form-control" name="search" placeholder="Tên sản phẩm..." value="">
+        </div>
+        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i> </button>
+    </form>
 
 
     <div class="row">
@@ -31,7 +31,7 @@
                 <div class="panel-heading">Danh sách sản phẩm</div>
                 <div class="panel-body">
 
-                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                     </form>
                     <div class="bootstrap-table">
                         <div class="table-responsive">
@@ -53,38 +53,30 @@
                                 </thead>
                                 <tbody>
                                     @foreach($products as $product)
-                                        <tr>
-                                            <th scope="row">{{ $product->id }}</th>
-                                            <td>{{ $product->name }}</td>
-                                            <td><img width="70px"
-                                                    src="{{ url('upload') }}/{{ $product->images }}"
-                                                    class=""></td>
-                                            <td>{{ number_format($product->price) }} VND</td>
-                                            <td>{{ $product->quantity }}</td>
-                                            <td><a href="{{ route('backend.products.index',['hot',$product->id]) }}"
-                                                    class="label {{ $product->getHot($product->vip)['class'] }}">{{ $product->getHot($product->vip)['name'] }}</a>
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('backend.products.index',['active',$product->id]) }}"
-                                                    class="label {{ $product->getStatus($product->active)['class'] }}">{{ $product->getStatus($product->active)['name'] }}</a>
-                                            </td>
-                                            <td><?php $categories = App\Category::find($product->categories_id) ?>
-                                                {{ $categories->name }}
-                                            </td>
+                                    <tr>
+                                        <th scope="row">{{ $product->id }}</th>
+                                        <td>{{ $product->name }}</td>
+                                        <td><img width="70px" src="{{ url('upload') }}/{{ $product->images }}" class=""></td>
+                                        <td>{{ number_format($product->price) }} VND</td>
+                                        <td>{{ $product->quantity }}</td>
+                                        <td><a href="{{ route('backend.products.index',['hot',$product->id]) }}" class="label {{ $product->getHot($product->vip)['class'] }}">{{ $product->getHot($product->vip)['name'] }}</a>
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('backend.products.index',['active',$product->id]) }}" class="label {{ $product->getStatus($product->active)['class'] }}">{{ $product->getStatus($product->active)['name'] }}</a>
+                                        </td>
+                                        <td><?php $categories = App\Category::find($product->categories_id) ?>
+                                            {{ $categories->name }}
+                                        </td>
 
-                                            <td> <a class=""
-                                                    href="{{ route('products.edit', $product->id) }}"><i
-                                                        class="fa fa-edit"></i></a>
+                                        <td> <a class="" href="{{ route('products.edit', $product->id) }}"><i class="fa fa-edit"></i></a>
 
-                                                <form class="delete" style="margin-left: 35px; margin-top: -22px;"
-                                                    action="{{ route('products.destroy', $product->id) }}"
-                                                    method="POST">
-                                                    {{ csrf_field() }}
-                                                    {{ method_field('DELETE') }}
-                                                    <button style="border: none;" class="">X</button>
-                                                </form>
-                                            </td>
-                                        </tr>
+                                            <form class="delete" style="margin-left: 35px; margin-top: -22px;" action="{{ route('products.destroy', $product->id) }}" method="POST">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
+                                                <button style="border: none;" class="">X</button>
+                                            </form>
+                                        </td>
+                                    </tr>
                                     @endforeach
                                 </tbody>
 
@@ -97,4 +89,3 @@
             </div>
         </div>
     </div>
-

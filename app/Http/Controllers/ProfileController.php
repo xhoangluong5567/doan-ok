@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class ProfileController extends Controller
 {
@@ -32,5 +34,30 @@ class ProfileController extends Controller
 
         return redirect()->back()->with('success','Cập nhật thông tin thành công');
 
+    }
+
+    public function getBillUser(Request $request) {
+        $user = Auth::user()->id;
+        $orders = Order::where('user_id','=',$user)->get();
+        return view('frontend.user.bill-user', ['orders'=>$orders]);
+    }
+
+    public function getBillDetails($id)
+    {
+        $userInfo = Auth::user();
+        $order = Order::find($id);
+
+        return view('frontend.user.bill-details', [
+            'user'=>$userInfo,
+            'order' => $order,
+        ]);
+    }
+    public function destroy(Request $request,$id)
+    {
+        $bill = Order::find($id);
+        $bill->delete();
+        $request->session()->flash('message', "Huỷ đơn hàng thành công");
+
+        return back();
     }
 }

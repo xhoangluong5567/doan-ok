@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Bill;
 use App\Order;
 use App\Product;
+use App\User;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
@@ -39,25 +41,13 @@ class BillController extends Controller
      */
     public function edit($id)
     {
+        $userInfo = Auth::user();
+        $order = Order::find($id);
 
-
-        $customerInfo = DB::table('customers')
-            ->join('orders', 'customers.id', '=', 'orders.customer_id')
-            ->select('customers.*', 'orders.id as bill_id', 'orders.total as orders_total', 'orders.note as orders_note', 'orders.status as orders_status')
-            ->where('customers.id', '=', $id)
-            ->first();
-
-        $billInfo = DB::table('orders')
-            ->join('order_items', 'orders.id', '=', 'order_items.bill_id')
-            ->leftjoin('products', 'order_items.product_id', '=', 'products.id')
-            ->where('orders.customer_id', '=', $id)
-            ->select('orders.*', 'order_items.*', 'products.name as product_name')
-            ->get();
-
-        $this->data['customerInfo'] = $customerInfo;
-        $this->data['billInfo'] = $billInfo;
-
-        return view('backend.bill.edit', $this->data);
+        return view('backend.bill.edit', [
+            'user'=>$userInfo,
+            'order' => $order,
+        ]);
     }
 
     /**

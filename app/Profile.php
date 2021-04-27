@@ -3,12 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Order extends Model
+class Profile extends Model
 {
-    protected $table = 'orders';
 
+    //
     public function orders() {
         return $this->hasMany(OrderItem::class,'bill_id');
     }
@@ -20,5 +19,4 @@ class Order extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
-
 }

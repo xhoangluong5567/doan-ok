@@ -1,5 +1,6 @@
 @extends('frontend.partials.master')
 @section('content')
+@include('frontend.partials.banner')
 
 <div class="product-hot" style="margin-bottom: 130px;">
     <div class="container">
@@ -145,6 +146,7 @@
         </div>
     </div>
 </div>
+
 
 <!-- end main -->
 </div>

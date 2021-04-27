@@ -21,21 +21,21 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $products = Product::paginate(10);
-
+        $search = $request->input('search');
+        $products = Product::where('name', 'like', '%' . $search . '%')->get();
         $categories = Category::all();
+
         return view('backend.products.index', ['products' => $products], ['categories' =>  $categories]);
     }
 
-    public function searchPro(Request $request)
-    {
+    // public function searchPro(Request $request)
+    // {
 
-        $search = $request->get('searchpro');
+    //     $search = $request->get('searchpro');
+    //     $products = Product::where('name', 'like', '%' . $search . '%')->paginate(10);
+    //     return view('backend.products.search', ['products' => $products]);
 
-        $products = DB::table('products')->where('name', 'like', '%' . $search . '%')->paginate(10);
-        return view('backend.products.search', ['products' => $products]);
-        
-    }
+    // }
     //
 
 
@@ -49,7 +49,7 @@ class ProductController extends Controller
         //
         return view('backend.products.create');
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -117,7 +117,8 @@ class ProductController extends Controller
 
 
 
-    public function postComment(Request $request,$id) {
+    public function postComment(Request $request, $id)
+    {
         $comment = new Comment;
         $comment->name = $request->name;
         $comment->email = $request->email;
@@ -125,8 +126,6 @@ class ProductController extends Controller
         $comment->product_id = $id;
         $comment->save();
         return back();
-
-
     }
 
 
@@ -164,14 +163,14 @@ class ProductController extends Controller
         $products->discount = $request['discount'];
 
 
-        if($request['images'] != null) {
+        if ($request['images'] != null) {
             $filename = $request->images->getClientOriginalName();
             $products->images = $request['images'];
             $request->images->move(public_path('upload'), $filename);
-            
+
             $products->images = $filename;
         }
-            
+
         $products->categories_id = $request['categories_id'];
         $products->save();
 
@@ -227,10 +226,4 @@ class ProductController extends Controller
         }
         return redirect()->back();
     }
-
-    
-
-
-    
-    
 }

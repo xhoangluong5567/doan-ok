@@ -16,6 +16,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        
         $user = User::all();
         $products = Product::all();
         $categories = Category::all();

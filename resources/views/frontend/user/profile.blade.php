@@ -16,7 +16,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="{{asset('/admin')}}">ISTORE SHOP</a>
+				<a class="navbar-brand" href="{{asset('/thong-tin-khach-hang')}}">ISTORE SHOP</a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> {{Auth::user()->email}} <span class="caret"></span></a>
@@ -31,9 +31,9 @@
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<ul class="nav menu">
 			<li role="presentation" class="divider"></li>
-			<li class="active"><a href="{{asset('admin')}}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Trang tổng quan</a></li>
+			<li class="active"><a href="{{asset('thong-tin-khach-hang')}}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Trang tổng quan</a></li>
 			<li><a href="{{route('get.info')}}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Thông tin cá nhân</a></li>
-			<li><a href="{{asset('bill')}}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Hóa đơn</a></li>
+			<li><a href="{{route('get.billuser')}}"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Hóa đơn</a></li>
 
 
 			<li role="presentation" class="divider"></li>
