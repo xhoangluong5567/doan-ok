@@ -193,7 +193,7 @@ class CartController extends Controller
 
                 // Session::forget('cart');
             }
-            Mail::send('frontend.shopcart.complete', $data, function ($message) use ($email) {
+            Mail::send('frontend.shopcart.email', $data, function ($message) use ($email) {
                 $message->from('xxhoangluong@gmail.com', 'Hoàng Lương');
                 $message->to($email, $email);
                 $message->cc('xhoangluong@gmail.com', 'Hoàng Lương');

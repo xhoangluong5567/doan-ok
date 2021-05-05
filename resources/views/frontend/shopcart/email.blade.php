@@ -1,7 +1,3 @@
-@extends('frontend.partials.master')
-@section('content')
-<!-- <link rel="stylesheet" href="{{ asset('frontend/css/complete.css') }}"> -->
-
 <div class="container">
     <hr>
     <hr>
@@ -34,15 +30,15 @@
             @foreach(Cart::content() as $row)
             <tr>
                  <td>{{ $row->name }}</td>
-                    <td class="price">{{number_format ($row->price) }} VNĐ</td>
+                    <td class="price">{{number_format($row->price)  }}</td>
                     <td>{{ $row->qty }}</td>
-                    <td class="price">{{number_format ($row->price*$row->qty) }} VNĐ</td>
+                    <td class="price">number_format{{ $row->price*$row->qty }}</td>
                 </tr>
-               
+                
             @endforeach
             <tr>
                     <td colspan="3">Tổng tiền:</td>
-                    <td class="total-price">{{Cart::subtotal()}} VNĐ</td>
+                    <td class="total-price">number_format{{ Cart::subtotal() }}</td>
                 </tr>
         </table>
     </div>
@@ -60,4 +56,3 @@
     </div>
     <p class="text-right return"><a href="#">Quay lại trang chủ</a></p>
 </div>
-@endsection
