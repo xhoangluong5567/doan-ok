@@ -96,3 +96,4 @@ Route::group(['prefix' => 'gio-hang', 'middleware' => 'CheckLogedUser'], functio
 
 Route::post('/checkout', 'CartController@postCheckOut');
 Route::get('/complete', 'CartController@getComplete');
+Route::post('show', 'CartController@postComplete');

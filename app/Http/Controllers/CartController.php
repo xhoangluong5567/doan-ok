@@ -161,13 +161,18 @@ class CartController extends Controller
 
 
 
+
+
     public function postCheckOut(Request $req)
-    {
+    {   
+        $data['total'] = Cart::total();
         $cart = Cart::content();
+        $email = $req->email;
         $user = User::find(Auth::user()->id)->update([
             'address' => $req->address,
-        ]);
 
+        ],
+    );
         $bill = new Order;
         $bill->user_id = Auth::user()->id;
         $bill->date_order = date('Y-m-d H:i:s');
@@ -185,13 +190,24 @@ class CartController extends Controller
                 $bill_details->quantity = $item->qty;
                 $bill_details->price = $item->price;
                 $bill_details->save();
-                // dd($bill_details);
 
                 // Session::forget('cart');
             }
-            Cart::destroy();
+            Mail::send('frontend.shopcart.complete', $data, function ($message) use ($email) {
+                $message->from('xxhoangluong@gmail.com', 'Hoàng Lương');
+                $message->to($email, $email);
+                $message->cc('xhoangluong@gmail.com', 'Hoàng Lương');
+                $message->subject('Xác nhận mua hàng');
+            });
+
             return redirect('complete');
+            Cart::destroy();
+
         }
+    }
+    public function postComplete()
+    {}
+
 
 
         // $bill_details->quantity = $quantity->quantity;
@@ -201,15 +217,10 @@ class CartController extends Controller
 
 
 
-
-    }
-
-
-
-
-    //
-    public function getComplete()
+     public function getComplete()
     {
+        // Cart::destroy(); 
         return view('frontend.shopcart.complete');
+
     }
 }

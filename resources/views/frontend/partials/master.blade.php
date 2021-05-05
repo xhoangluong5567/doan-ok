@@ -63,10 +63,8 @@
     margin: 0px auto; ">
 
         @if(Auth::check())
-        <a class="navbar-right" style="text-decoration: none; color:white;" href="{{ asset('logout') }}">Xin chào {{ Auth::user()->name }} !</a>
-        <a class="navbar-right" style="text-decoration: none; color:white;" href="{{ route('get.profile') }}">Quản lí thông tin</a>
+        <a class="navbar-right" style="text-decoration: none; color:white;" href="#">Xin chào {{ Auth::user()->name }} !</a>
         <a class="navbar-right" style="text-decoration: none; color:white;" href="{{ route('get.billuser') }}">Quản lí đơn hàng</a>
-        <a class="navbar-right" style="text-decoration: none; color:white;" href="{{ asset('logout') }}">Đăng xuất</a>
 
 
         @else
@@ -89,7 +87,7 @@
         <div class="row">
             <div id="logo" class="col-md-3 col-sm-12 col-xs-12">
                 <h1>
-                    <a href="{{ asset('/') }}"><img style="margin-top:20px;" src="{{ asset('img/logo2.png') }}"></a>
+                    <a href="{{ asset('/') }}"><img class="logo" style="margin-top:20px;" src="{{ asset('img/logo2.png') }}"></a>
                     <nav><a id="pull" class="btn btn-danger" href="#">
                             <i class="fa fa-bars"></i>
                         </a></nav>
@@ -104,11 +102,12 @@
             </div>
             <div id="cart" class="col-md-2 col-sm-12 col-xs-12">
                 <a class="display" href="{{ route('get.shopping.cart') }}">Giỏ hàng</a>
-                <a href="{{ route('get.shopping.cart') }}">{{ Cart::count() }}</a>
+                <a class="countcart" href="{{ route('get.shopping.cart') }}">{{ Cart::count() }}</a>
             </div>
         </div>
     </div>
 </header><!-- /header -->
+
 <div id="slide-banner">
     <div class="container slide-banner">
         <div class="row">
@@ -172,7 +171,7 @@
         </div>
     </div>
     <hr>
-    <div class="section-content relative">
+    <!-- <div class="section-content relative">
         <div class="row row-small align-middle row-dashed khuong">
             <div class="col medium-3 small-6 large-3">
                 <div class="col-inner">
@@ -191,7 +190,7 @@
                                 <span style="font-size: 90%;">Tuyệt đối yên tâm&nbsp;</span>
                             </p>
                         </div>
-                    </div><!-- .icon-box -->
+                    </div>
                 </div>
             </div>
             <div class="col medium-3 small-6 large-3">
@@ -210,7 +209,7 @@
                             <p><span style="font-size: 90%;"><strong>BẢO HÀNH SIÊU VIỆT</strong></span></p>
                             <p><span style="font-size: 90%;">100% khách hàng hài lòng&nbsp;</span></p>
                         </div>
-                    </div><!-- .icon-box -->
+                    </div>
 
 
                 </div>
@@ -231,9 +230,7 @@
                             <p><span style="font-size: 90%;"><strong>CAM KẾT GIÁ TỐT NHẤT</strong></span></p>
                             <p><span style="font-size: 90%;">Khỏi mất công so sánh giá</span></p>
                         </div>
-                    </div><!-- .icon-box -->
-
-
+                    </div>
                 </div>
             </div>
             <div class="col medium-3 small-6 large-3">
@@ -252,13 +249,12 @@
                             <p><span style="font-size: 80%;"><strong>CHẾ ĐỘ SUPPORT NHIỆT TÌNH&nbsp;</strong></span></p>
                             <p><span style="font-size: 80%;">Khách hàng thân thiết</span></p>
                         </div>
-                    </div><!-- .icon-box -->
-
+                    </div>
 
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <footer id="footer">
         <div id="footer-t">
             <div class="container">

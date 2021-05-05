@@ -11,7 +11,7 @@ body{
 	background: #cc2115;
 }
 #logo, #search, #cart{
-	height: 98px;
+	height: 92px;
 }
 #logo h1{	
 	line-height: 98px;
@@ -211,9 +211,7 @@ padding-left: 12px;
 
 /* reponsive */
 @media (max-width: 992px) {
-	#search{
-		display: none;
-	}
+
 	#slider{
 		display: none;
 	}
@@ -225,11 +223,10 @@ padding-left: 12px;
 		font-weight: bold;
 	}
 	#cart a:first-child{
-		margin-left: -70px;
 		color: #fff;
 	}	
 	#cart a:last-child{
-		margin-left: 50px;
+		margin-left: 0px;
 		color: #ff6600;
 	}	
 	
@@ -250,9 +247,7 @@ padding-left: 12px;
 	}
 }
 @media (max-width: 768px) {
-	#cart{
-		display: none;
-	}
+
 	#header{
 		text-align: center;
 	}

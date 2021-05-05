@@ -36,7 +36,7 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.googlemail.com'),
+            'host' => env('MAIL_HOST', 'smtp.gmail.org'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
@@ -84,9 +84,10 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hoangluongx02@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'Hoang Luong'),
+        'address' => env('MAIL_FROM_ADDRESS', 'xhoangluong99@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'xhoangluong99@gmail.com'),
     ],
+    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
 
     /*
     |--------------------------------------------------------------------------
