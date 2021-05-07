@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/cart.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/details.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/category.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
 
@@ -19,6 +22,7 @@
     <script type="text/javascript" src="{{ asset('frontend/js/jquery-3.2.1.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 
 
 
@@ -59,20 +63,32 @@
 
 @endif
 <div class="container-fluid" style="height:2em; background:black">
-    <div class="row nav" style="float: right;
-    margin: 0px auto; ">
+    <div class="row" style="float: right;
+    margin: 7px auto; ">
 
         @if(Auth::check())
-        <a class="navbar-right" style="text-decoration: none; color:white;" href="#">Xin chào {{ Auth::user()->name }} !</a>
-        <a class="navbar-right" style="text-decoration: none; color:white;" href="{{ route('get.billuser') }}">Quản lí đơn hàng</a>
+        <div class="dropdown">
+            <a style="color:white;text-decoration:none;" class="dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Xin chào {{ Auth::user()->name }} !
+            </a>
+
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="{{ route('get.profile') }}">Quản lí thông tin</a>
+                <a class="dropdown-item" href="{{ route('get.billuser') }}">Quản lí đơn hàng</a>
+                <a class="dropdown-item" href="{{ route('logout') }}">Đăng xuất</a>
+            </div>
+        </div>
+        <!-- <a class="navbar-right" style="text-decoration: none; color:white;" href="#">Xin chào {{ Auth::user()->name }} !</a>
+        <a class="navbar-right" style="text-decoration: none; color:white;" href="{{ route('get.billuser') }}">Quản lí đơn hàng</a> -->
 
 
         @else
+        <div class="nav menu">
+            <a href="{{ route('login') }}" class="navbar-right">Đăng nhập
+                <a href="{{ route('register') }}" class="navbar-right">Đăng kí</a>
+            </a>
+        </div>
 
-
-        <a href="{{ route('login') }}" class="navbar-right">Đăng nhập
-            <a href="{{ route('register') }}" class="navbar-right">Đăng kí</a>
-        </a>
 
 
         @endif
@@ -81,10 +97,13 @@
 
 </ul>
 </div>
+</div>
+</div>
+
 
 <header id="header">
     <div class="container">
-        <div class="row">
+        <div class="row" style="margin-top: 15px;">
             <div id="logo" class="col-md-3 col-sm-12 col-xs-12">
                 <h1>
                     <a href="{{ asset('/') }}"><img class="logo" style="margin-top:20px;" src="{{ asset('img/logo2.png') }}"></a>

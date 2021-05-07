@@ -12,6 +12,7 @@
     <script type="text/javascript" src="{{ asset('adminlte/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ asset('adminlte/js/lumino.glyphs.js') }}"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -20,7 +21,7 @@
                 <a class="navbar-brand" href="{{ asset('/thong-tin-khach-hang') }}">ISTORE SHOP</a>
                 <ul class="user-menu">
                     <li class="dropdown pull-right">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user">
+                        <a href="{{ asset('logout') }}" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user">
                                 <use xlink:href="#stroked-male-user"></use>
                             </svg> {{ Auth::user()->email }} <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">

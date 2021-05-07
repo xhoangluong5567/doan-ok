@@ -30,15 +30,15 @@
             @foreach(Cart::content() as $row)
             <tr>
                  <td>{{ $row->name }}</td>
-                    <td class="price">{{number_format($row->price)  }}</td>
+                    <td class="price">{{number_format($row->price)  }} vnđ</td>
                     <td>{{ $row->qty }}</td>
-                    <td class="price">number_format{{ $row->price*$row->qty }}</td>
+                    <td class="price">{{number_format($row->price*$row->qty) vnđ }}</td>
                 </tr>
                 
             @endforeach
             <tr>
                     <td colspan="3">Tổng tiền:</td>
-                    <td class="total-price">number_format{{ Cart::subtotal() }}</td>
+                    <td class="total-price">{{ Cart::subtotal() }} vnđ </td>
                 </tr>
         </table>
     </div>
@@ -48,10 +48,10 @@
     <div id="complete">
         <p class="info">Quý khách đã đặt hàng thành công!</p>
         <p>• Hóa đơn mua hàng của Quý khách đã được chuyển đến Địa chỉ Email có trong phần Thông tin Khách hàng của
-            chúng Tôi</p>
-        <p>• Sản phẩm của Quý khách sẽ được chuyển đến Địa có trong phần Thông tin Khách hàng của chúng Tôi sau thời
-            gian 2 đến 3 ngày, tính từ thời điểm này.</p>
-        <p>• Nhân viên giao hàng sẽ liên hệ với Quý khách qua Số Điện thoại trước khi giao hàng 24 tiếng</p>
+            chúng tôi</p>
+        <p>• Sản phẩm của Quý khách sẽ được chuyển đến địa có trong phần thông tin khách hàng của chúng tôi trong thời
+            gian nhanh nhất.</p>
+        <p>• Nhân viên giao hàng sẽ liên hệ với Quý khách qua số điện thoại trước khi giao hàng.</p>
         <p>Cám ơn Quý khách đã sử dụng Sản phẩm của chúng Tôi!</p>
     </div>
     <p class="text-right return"><a href="#">Quay lại trang chủ</a></p>

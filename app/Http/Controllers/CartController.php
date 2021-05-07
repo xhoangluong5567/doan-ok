@@ -194,19 +194,16 @@ class CartController extends Controller
                 // Session::forget('cart');
             }
             Mail::send('frontend.shopcart.email', $data, function ($message) use ($email) {
-                $message->from('xxhoangluong@gmail.com', 'Hoàng Lương');
+                $message->from('xxhoangluong@gmail.com', 'HL Istore');
                 $message->to($email, $email);
                 $message->cc('xhoangluong@gmail.com', 'Hoàng Lương');
-                $message->subject('Xác nhận mua hàng');
+                $message->subject('HL Istore - Xác nhận mua hàng');
             });
-
             return redirect('complete');
-            Cart::destroy();
 
         }
     }
-    public function postComplete()
-    {}
+
 
 
 
@@ -219,7 +216,8 @@ class CartController extends Controller
 
      public function getComplete()
     {
-        // Cart::destroy(); 
+
+        Cart::destroy(); 
         return view('frontend.shopcart.complete');
 
     }
