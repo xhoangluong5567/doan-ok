@@ -296,7 +296,7 @@ nav a#pull {
 }
 #product-details p:last-child{
 	height: 65px;
-	width: 30%;
+	width: 50%;
 	line-height: 65px;
 	padding: 0px;
 	background: -webkit-linear-gradient(#fe0000, #d10000);

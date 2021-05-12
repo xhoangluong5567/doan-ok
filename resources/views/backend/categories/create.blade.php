@@ -6,11 +6,7 @@
 
 @include('backend.partials.sidebar')
 @section('content')
-<ol class="breadcrumb">
-  <li><a href="#">Home</a></li>
-  <li><a href="#">Library</a></li>
-  <li class="active">Data</li>
-</ol>	
+
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
     <div class="row">
     @if (Session::has('success'))
@@ -23,6 +19,10 @@
     
         <div class="col-lg-12">
             <h1 class="page-header">Danh mục</h1>
+            <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i> Trang Chủ</a></li>
+                        <li class="#">Thêm danh mục</li>
+                    </ol>
         </div>
     </div>
     <!--/.row-->

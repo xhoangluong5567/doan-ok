@@ -32,8 +32,36 @@
 
                 <div class="carousel-inner" role="listbox">
                     @foreach($product_images as $anhphu)
-                        <img style="width:80px; height:80px;padding:10px;"
+                        <img class="zoom" style="width:80px; height:80px;padding:10px; margin-top:15px;margin-bottom:15px;"
                             src="{{ url('/') }}/{{ $anhphu->image }}" alt="...">
+                            <style>
+* {
+  box-sizing: border-box;
+}
+
+.zoom {
+  padding: 50px;
+  transition: transform .2s;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5); 
+}
+</style>
+</head>
+<body>
+
+
+  
+
+
+</body>
+</html>
                     @endforeach
 
                     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">

@@ -73,7 +73,7 @@ div.icon-box {
 
 a.navbar-right {
     padding: 23px;
-    margin-top: -18px;
+    margin-top: -25px;
     color: #f1faf3;
 }
 
@@ -83,7 +83,7 @@ a.navbar-right {
 
 #header {
     background: #cc2115;
-    height: 65p x;
+    height: 70px;
 }
 
 #logo,
@@ -94,11 +94,11 @@ a.navbar-right {
 
 #logo h1 {
     line-height: 98px;
-    margin-top: -20px;
+    margin-top: -35px;
 }
 
 #search {
-    margin-top: -22px;
+    margin-top: -35;
 }
 
 #search input {
@@ -139,7 +139,7 @@ a.navbar-right {
     color: #fff;
     line-height: 98px;
     font-weight: bold;
-    margin-top: -15px;
+    margin-top: -25px;
 }
 
 #cart a:first-child {
@@ -161,6 +161,7 @@ a.navbar-right {
         color: #ff6600;
 
     }
+
 }
 
 #body {
@@ -382,6 +383,9 @@ padding-left: 12px;
     #scroll {
         display: none;
     }
+    #product-details p:last-child {
+        width: 100%;
+    }
 }
 
 nav a#pull {
@@ -414,6 +418,9 @@ div.product-details p {
     color: #333;
     line-height: 1.5;
 }
+p.add-cart.text-center {
+    width: 100%;
+}
 
 @media only screen and (max-width : 480px) {
 
@@ -421,6 +428,15 @@ div.product-details p {
     margin: -25px auto;
     }
 
+
+
+    #logo h1 {
+        line-height: 98px;
+        margin-top: -19px;
+    }
+    /* #search {
+        margin-top: -35px;
+    } */
     div.col-md-6.chinh img {
         height: 141px;
         width: 100%;
@@ -428,6 +444,9 @@ div.product-details p {
         margin-top: -30px;
 
 
+    }
+    .category-container {
+        display: none;
     }
 
 	.logo {

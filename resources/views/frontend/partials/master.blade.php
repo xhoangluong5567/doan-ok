@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/cart.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/details.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/category.css') }}">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -28,38 +29,39 @@
 
     </script>
     <script type="text/javascript">
-        $(function() {
+        $(function () {
             var pull = $('#pull');
             menu = $('nav ul');
             menuHeight = menu.height();
 
-            $(pull).on('click', function(e) {
+            $(pull).on('click', function (e) {
                 e.preventDefault();
                 menu.slideToggle();
             });
         });
 
-        $(window).resize(function() {
+        $(window).resize(function () {
             var w = $(window).width();
             if (w > 320 && menu.is(':hidden')) {
                 menu.removeAttr('style');
             }
         });
+
     </script>
 
 </head>
 @if(Session::has('warning'))
-<div class="alert alert-warning">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <strong></strong>{{ Session::get('warning') }}
-</div>
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong></strong>{{ Session::get('warning') }}
+    </div>
 @endif
 @if(Session::has('success'))
 
-<div class="alert alert-success">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <strong></strong>{{ Session::get('success') }}
-</div>
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong></strong>{{ Session::get('success') }}
+    </div>
 
 @endif
 <div class="container-fluid" style="height:2em; background:black">
@@ -67,27 +69,28 @@
     margin: 7px auto; ">
 
         @if(Auth::check())
-        <div class="dropdown">
-            <a style="color:white;text-decoration:none;" class="dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Xin chào {{ Auth::user()->name }} !
-            </a>
+            <div class="dropdown">
+                <a style="color:white;text-decoration:none;" class="dropdown-toggle" href="#" id="dropdownMenuLink"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Xin chào {{ Auth::user()->name }} !
+                </a>
 
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="{{ route('get.profile') }}">Quản lí thông tin</a>
-                <a class="dropdown-item" href="{{ route('get.billuser') }}">Quản lí đơn hàng</a>
-                <a class="dropdown-item" href="{{ route('logout') }}">Đăng xuất</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ route('get.profile') }}">Quản lí thông tin</a>
+                    <a class="dropdown-item" href="{{ route('get.billuser') }}">Quản lí đơn hàng</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}">Đăng xuất</a>
+                </div>
             </div>
-        </div>
-        <!-- <a class="navbar-right" style="text-decoration: none; color:white;" href="#">Xin chào {{ Auth::user()->name }} !</a>
+            <!-- <a class="navbar-right" style="text-decoration: none; color:white;" href="#">Xin chào {{ Auth::user()->name }} !</a>
         <a class="navbar-right" style="text-decoration: none; color:white;" href="{{ route('get.billuser') }}">Quản lí đơn hàng</a> -->
 
 
         @else
-        <div class="nav menu">
-            <a href="{{ route('login') }}" class="navbar-right">Đăng nhập
-                <a href="{{ route('register') }}" class="navbar-right">Đăng kí</a>
-            </a>
-        </div>
+            <div class="nav menu">
+                <a href="{{ route('login') }}" class="navbar-right">Đăng nhập
+                    <a href="{{ route('register') }}" class="navbar-right">Đăng kí</a>
+                </a>
+            </div>
 
 
 
@@ -106,14 +109,16 @@
         <div class="row" style="margin-top: 15px;">
             <div id="logo" class="col-md-3 col-sm-12 col-xs-12">
                 <h1>
-                    <a href="{{ asset('/') }}"><img class="logo" style="margin-top:20px;" src="{{ asset('img/logo2.png') }}"></a>
+                    <a href="{{ asset('/') }}"><img class="logo" style="margin-top:20px;"
+                            src="{{ asset('img/logo2.png') }}"></a>
                     <nav><a id="pull" class="btn btn-danger" href="#">
                             <i class="fa fa-bars"></i>
                         </a></nav>
                 </h1>
             </div>
             <div id="search" class="col-md-7 col-sm-12 col-xs-12">
-                <form class="navbar-form" role="search" method="get" action="{{ asset('search/') }}">
+                <form class="navbar-form" role="search" method="get"
+                    action="{{ asset('search/') }}">
                     <input type="text" name="result" value="" placeholder="Nhập từ khóa tìm kiếm tại đây!">
                     <input type="submit" name="submit" value="Tìm Kiếm">
                 </form>
@@ -136,7 +141,10 @@
                         <li class="menu-item">danh mục sản phẩm</li>
                         <?php $categories = App\Category::all() ?>
                         @foreach($categories as $categories)
-                        <li class="menu-item"><a href="{{ url('categories') }}/{{ $categories->id }}" style="text-decoration:none;" value="{{ $categories->id }}">{{ $categories->name }}</a></li>
+                            <li class="menu-item"><a
+                                    href="{{ url('categories') }}/{{ $categories->id }}"
+                                    style="text-decoration:none;"
+                                    value="{{ $categories->id }}">{{ $categories->name }}</a></li>
                         @endforeach
 
 
@@ -148,44 +156,46 @@
             </div>
             <div id="main" class="col-md-9">
                 <!-- main -->
-                <!-- phan slide la cac hieu ung chuyen dong su dung jquey -->
                 <div id="slider">
                     <div id="demo" class="carousel slide">
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel" data-slide-to="1"></li>
+                                <li data-target="#myCarousel" data-slide-to="2"></li>
+                            </ol>
 
-                        <!-- Indicators -->
-                        <ul class="carousel-indicators">
-                            <li data-target="#demo" data-slide-to="0" class="active"></li>
-                            <li data-target="#demo" data-slide-to="1"></li>
-                            <li data-target="#demo" data-slide-to="2"></li>
-                        </ul>
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img style="width:855px;height: 292px;"
+                                        src="{{ asset('img/frontend/ap5.png') }}"> </div>
 
-                        <!-- The slideshow -->
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img style="width:855px;height: 292px;" src="{{ asset('img/frontend/ap5.png') }}">
+                                <div class="item">
+                                    <img style="width:855px; height:292px;"
+                                        src="{{ asset('img/frontend/ap3.png') }}">
+                                </div>
+
+                                <div class="item">
+                                    <img style="width:855px; height:292px;"
+                                        src="{{ asset('img/frontend/ap4.png') }}">
+                                </div>
                             </div>
-                            <div class="carousel-item">
-                                <img style="width:855px; height:292px;" src="{{ asset('img/frontend/ap3.png') }}">
-                            </div>
-                            <div class="carousel-item">
-                                <img style="width:855px; height:292px;" src="{{ asset('img/frontend/ap4.png') }}">
-                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
-
-                        <!-- Left and right controls -->
-                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                            <span class="carousel-control-prev-icon"></span>
-                        </a>
-                        <a class="carousel-control-next" href="#demo" data-slide="next">
-                            <span class="carousel-control-next-icon"></span>
-                        </a>
                     </div>
                 </div>
             </div>
-
-
-
-
             @yield('content')
         </div>
     </div>
@@ -279,7 +289,8 @@
             <div class="container">
                 <div class="row">
                     <div id="logo-f" class="col-md-3 col-sm-12 col-xs-12 text-center">
-                        <a href="#"><img style="margin-top:20px;" src="{{ asset('img/logo2.png') }}"></a>
+                        <a href="#"><img style="margin-top:20px;"
+                                src="{{ asset('img/logo2.png') }}"></a>
                     </div>
                     <div id="about" class="col-md-3 col-sm-12 col-xs-12">
                         <h3>About us</h3>

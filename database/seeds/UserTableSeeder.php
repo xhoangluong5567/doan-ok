@@ -22,20 +22,7 @@ class UserTableSeeder extends Seeder
                 'level'=>1
             ];
 
-            [
-                'email'=>'xhoangluong1@gmail.com',
-                'name' => 'Hoàng Lương',
-                'password'=>bcrypt('xhoangluong'),
-                'phone'=>'0963600034',
-                'level'=>1
-            ];
-            [
-                'email'=>'xhoangluong2@gmail.com',
-                'name' => 'Hoang Luong',
-                'password'=>bcrypt('xhoangluong'),
-                'phone'=>'0963600033',
-                'level'=>1
-            ];
+          
             DB::table('users')->insert($data);
         
     }

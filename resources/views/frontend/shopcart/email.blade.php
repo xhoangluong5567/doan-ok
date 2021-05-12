@@ -32,7 +32,7 @@
                  <td>{{ $row->name }}</td>
                     <td class="price">{{number_format($row->price)  }} vnđ</td>
                     <td>{{ $row->qty }}</td>
-                    <td class="price">{{number_format($row->price*$row->qty) vnđ }}</td>
+                    <td class="price">{{number_format($row->price*$row->qty)}} vnđ</td>
                 </tr>
                 
             @endforeach

@@ -23,7 +23,7 @@
 					<td width="11.112%">Xóa</td>
 					@foreach ($products as $product)
 				<tr>
-					<td><img class="img-responsive" style="width: 130px; height: 150px;" src="{{ url('upload') }}/{{$product->options->images}}"></td>
+					<td><img class="" style="width: 130px; height: 150px;" src="{{ url('upload') }}/{{$product->options->images}}"></td>
 					<td>{{ $product->name }}</td>
 					<td>
 						<div class="form-group">
@@ -59,8 +59,11 @@
 					Tổng thanh toán: <span class="total-price">{{Cart::subtotal()}}</span>
 
 				</div>
-				<a class="btn btn-warning" href="{{route('get.form.pay')}}">Thanh toán</a>
-				<a href="{{asset('cart/delete/all')}}" class="btn btn-success">Xóa tất cả hàng trong giỏ</a>
+				<div class="button" style="margin: auto;">
+				<a class="btn btn-danger" href="{{route('get.form.pay')}}">Thanh toán</a>
+				<a href="{{asset('cart/delete/all')}}" class="btn btn-primary">Xóa tất cả hàng trong giỏ</a>
+				</div>
+
 				</div>
 			</div>
 		</form>

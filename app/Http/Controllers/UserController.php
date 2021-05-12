@@ -43,7 +43,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('layouts.backend.users.create');
+        return view('backend.user.create');
     }
 
     /**
@@ -52,11 +52,22 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store( $request)
+    public function store(Request $request)
     {
-        $users = User::create($request->all());
+        $users = User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => bcrypt($request->password),
+            'level' => $request['level'],
+
+        ]);
+
+
+
+
+        
         if($users) {
-            return redirect()->route('users.index');
+            return redirect()->back();
         }
         return redirect()->route('users.create');
     }
@@ -101,8 +112,8 @@ class UserController extends Controller
         $user = User::find($id);
         $user->name = $request['name'];
         $user->email = $request['email'];
-        $user->password = $request['password'];
-        $user->is_admin = $request['level'];
+        $user->password = bcrypt($request->password);
+        $user->level = $request['level'];
         $user->save();
         if($user){
             return redirect()->route('user.index');

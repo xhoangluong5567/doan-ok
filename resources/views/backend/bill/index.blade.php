@@ -16,9 +16,8 @@
                         Danh sách đơn hàng
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li><a href="#">Bill</a></li>
-                        <li class="active">List</li>
+                        <li><a href="#"><i class="fa fa-dashboard"></i> Trang Chủ</a></li>
+                        <li class="#">Hóa Đơn</li>
                     </ol>
                 </section>
                 <!-- Main content -->

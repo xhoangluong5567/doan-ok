@@ -9,6 +9,10 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">Thương Hiệu</h1>
+                <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i> Trang Chủ</a></li>
+                        <li class="#">Sửa danh mục</li>
+                    </ol>
 			</div>
 		</div><!--/.row-->
 		
@@ -16,7 +20,7 @@
 			<div class="col-xs-12 col-md-12 col-lg-12">
 				
 				<div class="panel panel-primary">
-					<div class="panel-heading">Sửa Thương Hiệu</div>
+					<div class="panel-heading">Sửa danh mục</div>
                 <div class="panel-body">
                     <form action="{{ route('categories.update', $categories->id)}}" method="post">
                         @csrf

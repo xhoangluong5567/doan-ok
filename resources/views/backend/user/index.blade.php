@@ -29,12 +29,11 @@
         <div class="col-xs-12 col-md-12 col-lg-12">
 
             <div class="panel panel-primary">
-                <div class="panel-heading">Danh sách sản phẩm</div>
+                <div class="panel-heading">Danh sách User</div>
                 <div class="panel-body">
                     <div class="bootstrap-table">
                         <div class="table-responsive">
-                            <a href="{{ asset('products/create') }}" class="btn btn-primary">Thêm
-                                sản phẩm</a>
+                            <a href="{{ asset('admin/user/create') }}" class="btn btn-primary">Thêm User</a>
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -43,7 +42,6 @@
                                         <th scope="col">Email</th>
                                         <th scope="col">Password</th>
                                         <th scope="col">Quyền:</th>
-                                        <th scope="col">Trạng thái</th>
                                         <th scope="col">Thao tác</th>
 
                                     </tr>
@@ -54,12 +52,18 @@
                                             <th scope="row">{{ $user->id }}</th>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
-                                            <td class="">{{ $user->password }}</td>
-                                            <td><a href="{{ route('backend.user.index',['hot',$user->id]) }}"
-                                                    class="}}">{{ $user->level }}</a>
-                                            </td>
-                                            <td> <a href="{{ route('backend.user.index',['active',$user->id]) }}">
-                                            </td>
+                                            <td class="">************</td>
+                                            <td>
+                                                        @switch($user->level)
+                                                        @case(0)
+                                                        User
+                                                        @break
+                                                        @case(1)
+                                                        Admin
+                                                        @break
+                                                        @endswitch
+                                                    </td>
+
 
                                             <td> <a class=""
                                                     href="{{ route('user.edit', $user->id) }}"><i

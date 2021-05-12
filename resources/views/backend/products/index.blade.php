@@ -31,12 +31,12 @@
                 <div class="panel-heading">Danh sách sản phẩm</div>
                 <div class="panel-body">
 
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                     </form>
                     <div class="bootstrap-table">
                         <div class="table-responsive">
                             <a href="{{ asset('admin/products/create') }}" class="btn btn-primary">Thêm
                                 sản phẩm</a>
+                                
                             <table class="table">
                                 <thead>
                                     <tr>

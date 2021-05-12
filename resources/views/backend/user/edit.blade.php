@@ -19,7 +19,7 @@
 				<div class="panel panel-primary">
 					<div class="panel-heading">Sửa Thương Hiệu</div>
                 <div class="panel-body">
-                    <form action="{{ route('users.update', $user->id)}}" method="post">
+                    <form action="{{ route('user.update', $user->id)}}" method="post">
                         @csrf
                         @method('PUT')
                         <div class="row" style="margin-bottom:40px">
@@ -38,7 +38,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Phân Quyền</label>
-                                    <input type="text" name="is_admin" value="{{ $user->is_admin }}" class="form-control">
+                                            <select required name="level" class="form-control input-inline"
+                                                style="width: 200px">
+                                                <option value="0">User</option>
+                                                <option value="1">Admin</option>
+
+                                            </select>
                                 </div>
                         
 									<!-- <textarea required name="desc" style="width: 700px; height: 200px"></textarea> -->
@@ -47,7 +52,7 @@
                         </div>
                         <div class="btn giua" style="width: 100%;">
                                 <input type="submit" name="submit" value="Update" class="btn btn-primary" >
-                                <a href="{{ route('users.index')}}" class="btn btn-danger">Hủy bỏ</a>
+                                <a href="{{ route('user.index')}}" class="btn btn-danger">Hủy bỏ</a>
                             </div>
                         </div>
 			</div>
@@ -62,4 +67,3 @@
 
 
 
-@endsection
